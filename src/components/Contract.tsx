@@ -2,10 +2,11 @@ import React from 'react';
 
 interface IProps {
     name: string,
-    email?: string
+    email: string,
+    handleRemove: (email: string) => void
 }
 
-const Contract = ({name, email = 'N/A'}: IProps) => {
+const Contract = ({name, email, handleRemove}: IProps) => {
     return (
         <div className='card'>
             <p>
@@ -14,6 +15,7 @@ const Contract = ({name, email = 'N/A'}: IProps) => {
             <p>
                 <strong>📨 Email:</strong> {email}
             </p>
+            <button onClick={() => handleRemove(email)}>❌ Remove</button>
         </div>
     );
 };
